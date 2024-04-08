@@ -2,7 +2,9 @@ from openai import OpenAI
 import os
 from database import create_connection, insert_thought
 
-client = OpenAI(api_key='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')
+api_key= os.getenv("OPENAI_API_KEY")
+
+client = OpenAI(api_key=api_key)
 
 # Directory where the audio files are stored
 audio_files_directory = "/Users/Yash/Desktop/CMU/CMU year 4/Sem 2/Capstone/bellaRecordings"
