@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'GT-America';
+    src: url('/Users/Yash/Desktop/Work/Fonts/GT-America/');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Lora';
+    src: url('/Users/Yash/Desktop/Work/Fonts/Lora/');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Manrope';
+    src: url('/Users/Yash/Desktop/Work/Fonts/Manrope/');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.huge-headline {  
+  font-family: 'GT-America-Expanded-Regular-Trial';
+  font-size: 72px;
+  line-height: 1;
+}
+
+.Xlarge-headline {
+  font-family: 'GT-America-Expanded-Regular-Trial';
+  font-size: 50px;
+  line-height: 1;
+}
+
+.Xlarge-headline-alt {
+  font-family: 'Lora';
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 1;
+}
+
+.large-headline {
+  font-family: 'GT-America-Expanded-Regular-Trial';
+  font-size: 36px;
+  line-height: 1;
+}
+
+.large-headline-alt {
+    font-family: 'Lora';
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 1;
+  }
+
+.medium-headline {
+  font-family: 'GT-America-Expanded-Regular-Trial';
+  font-size: 26px;
+  line-height: 1;
+}
+
+.medium-headline-alt {
+    font-family: 'Lora';
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 1;
+  }
+
+.small-headline {
+  font-family: 'GT-America-Expanded-Regular-Trial';
+  font-size: 22px;
+  line-height: 1;
+}
+
+.small-headline-alt {
+    font-family: 'Lora';
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 1;
+  }
+
+.eyebrow {
+  font-family: 'GT-America-Condensed-Medium-Trial';
+  font-size: 16px;
+  line-height: 1;
+}
+
+.large-body {
+  font-family: 'GT-America-Expanded-Regular-Trial';
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.large-body-bold {
+  font-family: 'GT-America-Expanded-Medium-Trial';
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.default-body{
+  font-family: 'GT-America-Expanded-Regular-Trial';
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.default-body-bold{
+    font-family: 'GT-America-Expanded-Medium-Trial';
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.Body-alt {
+  font-family: 'GT-America-Standard-Regular-Trial';
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Body-alt-bold {
+    font-family: 'GT-America-Standard-Bold-Trial';
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+.Calltoaction-primary {
+  font-family: 'Manrope';
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.Calltoaction-micro {
+   font-family: 'Manrope';
+   font-weight: bold;
+   font-size: 10px;
+   line-height: 1.5;
+   letter-spacing: 1.5px;
+}
+
+.extra-large-figure{
+  font-family: 'Lora';
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 1;
+}
