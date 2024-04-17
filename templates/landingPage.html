@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
++<html lang="en" dir="ltr" style="background-color: #BAC8C9;">
+-<html lang="en" dir="ltr">
 <link rel="stylesheet" href="/Users/Yash/Desktop/CMU/CMU year 4/Sem 2/Capstone/yash-karan/styles.css">
 
 <head>
@@ -8,7 +9,19 @@
 </head>
 
 <body>
-  <h1 class="Xlarge-headline-alt">Welcome to the Landing Page</h1>
+    <h4 class = "medium-headline" id="current-date">Current date will be displayed here.</p>
+    <script>
+      // Get the current date
+      var currentDate = new Date();
+  
+      // Format the date as you prefer
+      var dateString = currentDate.toDateString(); 
+  
+      // Display the date in the element with id="current-date"
+      document.getElementById('current-date').textContent = dateString;
+    </script>
+  <h1 class="huge-headline">Hey Yash</h1>
 </body>
 
 </html>
+
