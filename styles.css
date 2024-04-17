@@ -1,13 +1,22 @@
 @font-face {
-    font-family: 'GT-America';
-            /* Ext-Rg */
-    src: url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Trial-Ext-Rg.woff2') format('woff2'),
-         url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Trial-Ext-Rg.woff2') format('woff2');
+     /* Expanded-Regular */
+    font-family: 'GT-America-Ext-Regular';
+    src: url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Expanded-Thin-Trial.otf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
-         /* Fallback for older browsers that don't support woff2 */
-         /* url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Trial-Ext-Rg.woff') format('woff'),
-         url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Trial-Ext-Rg.woff') format('woff2'); */
-         
+@font-face {
+    /* Condensed-Medium */
+    font-family: 'GT-America-Trial-Cn-Md';
+    src: url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Condensed-Regular-Trial.otf') format('woff2');
+    font-weight: medium;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT-America-Extended-Light-Trial';
+    src: url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Extended-Light-Trial.otf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -27,10 +36,8 @@
 }
 
 .huge-headline {
-    font-family: 'GT-America', sans-serif;
+    font-family: 'GT-America-Ext-Regular', sans-serif;
     color: #ECF6F6;
-    font-weight: normal;
-    font-style: normal; 
     font-size: 100px;
     letter-spacing: -5px;
     text-align: center;
@@ -65,11 +72,9 @@
 }
 
 .medium-headline {
-    font-family: 'GT-America', sans-serif;
+    font-family: 'GT-America-Extended-Light-Trial';
     color: #ffffff;
-    font-weight: normal; /* Match the font-weight from the @font-face rule */
-    font-style: normal; /* Match the font-style from the @font-face rule */
-    font-size: 26px;
+    font-size: 20px;
     text-align: center;
 }
 
