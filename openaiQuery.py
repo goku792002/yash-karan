@@ -1,7 +1,10 @@
+import os
 from openai import OpenAI
 from database import create_connection
 
-client = OpenAI(api_key='sk-proj-gF3dMWnLGD6VxyQ8c3G4T3BlbkFJEfcD0I25wsl4mQzyJ1Ze')
+api_key= os.getenv("OPENAI_API_KEY")
+
+client = OpenAI(api_key=api_key)
 
 # connect to the database
 conn = create_connection('thoughts.db')
@@ -32,5 +35,5 @@ def query_openai(user_query, thoughts):
     return answer
 
 query = "why am I sad?"
-# answer = query_openai(query, fetch_all_thoughts(conn))
-# print ("THIS IS THE ANSWER", answer)
+answer = query_openai(query, fetch_all_thoughts(conn))
+print ("THIS IS THE ANSWER", answer)
