@@ -1,4 +1,5 @@
 import sqlite3
+import random
 
 def create_connection(db_file):
     """Create a database connection to the SQLite database specified by db_file."""
@@ -43,6 +44,18 @@ def insert_thought(conn, text):
     c = conn.cursor()
     c.execute("INSERT INTO thoughts (thoughts, value_tag, timestamp) VALUES (?, 'Untagged', datetime('now'))", (text,))
     conn.commit()
+
+def get_random_thought(conn):
+    """Get a random thought from the thoughts table."""
+    try:
+        c = conn.cursor()
+        c.execute("SELECT thoughts FROM thoughts")
+        rows = c.fetchall()
+        random_thought=random.choice(rows) if rows else None
+        return random_thought[0] if random_thought else 'No thoughts available'
+    except sqlite3.Error as e:
+        print(e)
+        return 'Error fetching thoughts'
 
 
 def main():

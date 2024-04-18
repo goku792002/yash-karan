@@ -1,7 +1,7 @@
 from openai import OpenAI
 from database import create_connection
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='sk-proj-gF3dMWnLGD6VxyQ8c3G4T3BlbkFJEfcD0I25wsl4mQzyJ1Ze')
 
 # connect to the database
 conn = create_connection('thoughts.db')
@@ -32,5 +32,5 @@ def query_openai(user_query, thoughts):
     return answer
 
 query = "why am I sad?"
-answer = query_openai(query, fetch_all_thoughts(conn))
-print ("THIS IS THE ANSWER", answer)
+# answer = query_openai(query, fetch_all_thoughts(conn))
+# print ("THIS IS THE ANSWER", answer)

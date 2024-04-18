@@ -1,13 +1,14 @@
 from flask import Flask, render_template, request
 from openaiQuery import query_openai, fetch_all_thoughts
 from database import create_connection
+from database import get_random_thought
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
-def index():
-    #Render the HTML page with the form on it
-    return render_template('index.html')
+def landingPage():
+    #Render the HTML page wirath the form on it
+    return render_template('landingPage.html')
 
 @app.route('/ask', methods=['POST'])
 def ask():
@@ -20,6 +21,14 @@ def ask():
     conn.close()
 
     return render_template('answer.html', answer=answer, relevant_thoughts=relevant_thoughts)
+
+@app.route('/random_thought')
+def random_thought():
+    conn = create_connection('thoughts.db')
+    thought = get_random_thought(conn)
+    conn.close()
+    return {'thought': thought}
+
 
 if __name__ == '__main__':
     app.run(debug=True)

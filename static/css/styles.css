@@ -1,29 +1,25 @@
 @font-face {
      /* Expanded-Regular */
-    font-family: 'GT-America-Ext-Regular';
-    src: url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Expanded-Thin-Trial.otf') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'GT-America-Exp-Thin-Trial';
+    src: url('../fonts/GT-America-Extended-Regular-Trial.otf') format('woff2');
 }
 
 @font-face {
     /* Condensed-Medium */
     font-family: 'GT-America-Trial-Cn-Md';
-    src: url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Condensed-Regular-Trial.otf') format('woff2');
-    font-weight: medium;
-    font-style: normal;
+    src: url('../fonts/GT-America-Condensed-Thin-Trial.otf') format('woff2');
 }
 
 @font-face {
     font-family: 'GT-America-Extended-Light-Trial';
-    src: url('/Users/Yash/Desktop/Work/Fonts/GT-America/GT-America-Extended-Light-Trial.otf') format('woff2');
+    src: url('../fonts/GT-America-Extended-Ultra-Light-Trial.otf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lora';
-    src: url('/Users/Yash/Desktop/Work/Fonts/Lora/');
+    src: url('../fonts/Lora-Regular.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -35,12 +31,27 @@
     font-style: normal;
 }
 
+html,body{
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+}
+
+body{
+    margin-top: -100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .huge-headline {
-    font-family: 'GT-America-Ext-Regular', sans-serif;
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+    font-weight: lighter;
     color: #ECF6F6;
     font-size: 100px;
     letter-spacing: -5px;
-    text-align: center;
 }
 
 .Xlarge-headline {
@@ -54,8 +65,7 @@
     font-family: 'Lora';
     font-weight: normal;
     font-size: 50px;
-    line-height: 1;
-    color: #ffffff;
+    color: #ECF6F6;
 }
 
 .large-headline {
@@ -72,15 +82,16 @@
 }
 
 .medium-headline {
-    font-family: 'GT-America-Extended-Light-Trial';
+    font-family: 'GT-America-Extended-Light-Trial', sans-serif;
+    font-weight: lighter;
     color: #ffffff;
     font-size: 20px;
-    text-align: center;
 }
 
 .medium-headline-alt {
     font-family: 'Lora';
     font-weight: normal;
+    color:#ffffff;
     font-size: 26px;
     line-height: 1;
 }
@@ -95,7 +106,8 @@
     font-family: 'Lora';
     font-weight: normal;
     font-size: 22px;
-    line-height: 1;
+    color: #ffffff;
+    line-height: 1.5;
 }
 
 .eyebrow {
@@ -161,4 +173,37 @@
     font-weight: normal;
     font-size: 40px;
     line-height: 1;
+}
+
+.margin-top-sm{
+    margin-top: 10px;
+}
+
+.margin-bottom-sm{
+    margin-bottom: 10px;
+}
+
+.margin-bottom-neg-sm{
+    margin-bottom: -20px;
+}
+
+.margin-bottom-neg-md{
+    margin-bottom: -35px;
+}
+
+.margin-bottom-neg-lg{
+    margin-bottom: -50px;
+}
+
+#parent-container {
+    position: relative;
+    width: 60%;
+}
+
+#random-thought {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: visible;
 }
