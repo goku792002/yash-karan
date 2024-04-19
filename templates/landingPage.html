@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" style="background-color: #BAC8C9;">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-<script src="{{ url_for('static', filename='js/landingPage.js') }}"></script>
+
 
 <head>
-  <meta charset="utf-8">
-  <title>Landing Page</title>
+    <meta charset="utf-8">
+    <title>Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/landingPage.js') }}" type="module"></script>
 </head>
 
 <body>
@@ -18,7 +20,6 @@
     <div id="parent-container">
         <div id="random-thought" class="small-headline-alt margin-top-sm">Loading thoughts...</div>
     </div>
-
 </body>
 
 </html>

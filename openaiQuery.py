@@ -34,6 +34,6 @@ def query_openai(user_query, thoughts):
     answer = completion.choices[0].message
     return answer
 
-query = "why am I sad?"
-answer = query_openai(query, fetch_all_thoughts(conn))
-print ("THIS IS THE ANSWER", answer)
+# query = "why am I sad?"
+# answer = query_openai(query, fetch_all_thoughts(conn))
+# print ("THIS IS THE ANSWER", answer)
