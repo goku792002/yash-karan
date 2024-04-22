@@ -1,0 +1,17 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #9AADAF;
+    overflow: hidden; /* Hide scrollbars */
+}
+
+#headline {
+    position: absolute;
+    top: 10%; /* Adjust as necessary to place the text at the top */
+    left: 50%;
+    transform: translate(-50%, -10%);
+    color: white;
+    font-size: 50px;
+    font-family: 'Manrope', sans-serif;
+    user-select: none; /* Prevent text selection */
+}
