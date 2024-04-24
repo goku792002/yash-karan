@@ -33,23 +33,6 @@ function setup() {
         particle.targetY = particle.y;
         particles.push(particle);
     }
-    // Create the pop-up element
-    popup = createDiv('');
-    popup.position(windowWidth / 2, windowHeight / 2);
-    popup.size(500, 600); // Set the size of the popup
-    popup.style('display', 'none'); // Hide it initially
-    popup.style('background-color', 'white');
-    popup.style('padding', '20px');
-    popup.style('text-align', 'center');
-    popup.style('border-radius', '8px');
-    popup.style('position', 'fixed');
-    popup.style('top', '50%');
-    popup.style('left', '50%');
-    popup.style('transform', 'translate(-50%, -50%)');
-    popup.style('z-index', '100'); // Set a high z-index to make it appear on top
-    let closeButton = createButton('Close');
-    closeButton.mousePressed(hidePopup);
-    popup.child(closeButton);
   }
 
 function draw() {
@@ -77,22 +60,20 @@ function draw() {
 
 
 function hidePopup() {
-    popup.style('display', 'none');
-    popupActive = false;
-
+    document.getElementById('popup').style.display = 'none'; // Hide the popup
+    popupActive = false; // Set the popup as inactive
     if (selectedParticle) {
         selectedParticle.isSelected = false;
         selectedParticle = null;
     }
-    // React to the current mouse position to either scatter or arrange particles
-    mouseMoved();
+    mouseMoved(); // Update particles based on mouse position
 }
 
 function showPopup(dayOfYear) {
-    // Set the content for the pop-up based on the dayOfYear
-    popup.html('Day of Year: ' + dayOfYear);
-    popup.style('display', 'block');
-    popupActive = true;
+    let popupText = document.getElementById('popup-text');
+    popupText.innerHTML = 'Day of Year: ' + dayOfYear; // Set the content of the popup
+    document.getElementById('popup').style.display = 'block'; // Show the popup
+    popupActive = true; // Set the popup as active
 }
 
 function mouseClicked() {
@@ -109,11 +90,7 @@ function mouseClicked() {
   }
 
 function mouseMoved() {
-    if (popupActive) {
-        console.log(popupActive);
-    return; // Ignore mouse moves if a popup is active
-    }
-  
+    if (popupActive) return; // Ignore mouse moves if a popup is active
     // Calculate central area
     let centralArea = { x: width * 0.25, y: 0, w: width * 0.5, h: height };
     if (mouseX > centralArea.x && mouseX < centralArea.x + centralArea.w &&

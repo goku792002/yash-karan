@@ -15,3 +15,31 @@ body, html {
     font-family: 'Manrope', sans-serif;
     user-select: none; /* Prevent text selection */
 }
+
+.popup {
+    position: fixed;
+    width: 500px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000; /* Ensure it's on top */
+    overflow: auto; /* Add scroll if content overflows */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#close-button {
+    padding: 10px 20px;
+    background-color: #f00; /* Red background for visibility */
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
