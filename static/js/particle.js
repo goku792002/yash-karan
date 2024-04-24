@@ -55,11 +55,6 @@ class Particle {
     }
     
     scatter() {
-        // Don't scatter if this particle is the selected one
-        if (this.isSelected) {
-            return;
-        }
-        // Define target positions based on the initial side
         if (this.initialSide === 'left') {
             this.targetX = random(width * 0.1); // Target X for left side
         } else {

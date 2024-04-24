@@ -36,7 +36,7 @@ function setup() {
     // Create the pop-up element
     popup = createDiv('');
     popup.position(windowWidth / 2, windowHeight / 2);
-    popup.size(200, 200); // Set the size of the popup
+    popup.size(500, 600); // Set the size of the popup
     popup.style('display', 'none'); // Hide it initially
     popup.style('background-color', 'white');
     popup.style('padding', '20px');
@@ -62,9 +62,16 @@ function draw() {
     });
 
     if (popupActive) {
+        particles.forEach(particle => {
+            if (particle != selectedParticle) {
+                particle.moveToTarget();
+            }
+            particle.display();
+        })
         fill(0, 0, 0, 127);
         rect(0, 0, width, height);
-        selectedParticle.display();  // Ensure selected particle is visible on top of overlay
+        
+        //selectedParticle.display();  // Ensure selected particle is visible on top of overlay
     }
 }
 
