@@ -1,8 +1,44 @@
+@font-face {
+     /* Expanded-Regular */
+    font-family: 'GT-America-Exp-Thin-Trial';
+    src: url('../fonts/GT-America-Extended-Regular-Trial.otf') format('woff2');
+}
+
+@font-face {
+    /* Condensed-Medium */
+    font-family: 'GT-America-Trial-Cn-Md';
+    src: url('../fonts/GT-America-Condensed-Thin-Trial.otf') format('woff2');
+}
+
+@font-face {
+    font-family: 'GT-America-Extended-Light-Trial';
+    src: url('../fonts/GT-America-Extended-Ultra-Light-Trial.otf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('../fonts/Lora-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('/Users/Yash/Desktop/Work/Fonts/Manrope/');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 body, html {
     margin: 0;
     padding: 0;
     background-color: #9AADAF;
-    overflow: hidden; /* Hide scrollbars */
+    overflow-x: hidden; /* Disables horizontal scrolling*/
+    overflow-y: auto; /* Enables vertical scrolling as needed */
 }
 
 #headline {
@@ -10,10 +46,11 @@ body, html {
     top: 10%; /* Adjust as necessary to place the text at the top */
     left: 50%;
     transform: translate(-50%, -10%);
-    color: white;
-    font-size: 50px;
-    font-family: 'Manrope', sans-serif;
-    user-select: none; /* Prevent text selection */
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+    font-weight: lighter;
+    text-align: center;
+    color: #ECF6F6;
+    font-size: 40px;
 }
 
 .popup {

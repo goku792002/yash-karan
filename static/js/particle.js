@@ -5,7 +5,7 @@ class Particle {
         this.initialSide = side; // Store the initial side
         this.targetX = 0; // Will be set in setup
         this.targetY = 0; // Will be set in setup
-        this.size = 20;
+        this.size = 15;
         this.side = side;
         this.dayOfYear = null; // Add this property
         this.isSelected = false; // Add this property
@@ -16,9 +16,9 @@ class Particle {
         const cellWidth = width * 0.02;
         const cellHeight = height * 0.03;
         const startX = width * 0.35; // Starting X position
-        const startY = height * 0.3; // Starting Y position, adjusted to be under the headline
-        const blockSpacingX = width * 0.03; // Additional space between month blocks on X
-        const blockSpacingY = height * 0.04; // Additional space between month blocks on Y
+        const startY = height * 0.2; // Starting Y position, adjusted to be under the headline
+        const blockSpacingX = width * 0.02; // Additional space between month blocks on X
+        const blockSpacingY = height * 0.03; // Additional space between month blocks on Y
     
         let dayCounter = 0;
         let monthIndex = 0;
@@ -86,16 +86,22 @@ class Particle {
     }
 
     display() {
-        // Increase size if mouse is over the particle and it's arranged
-        //noStroke();
+        // Calculate breathing size
+        let breathingSize = this.size + sin(frameCount * 0.05) * 2;
+    
+        // Define two colors for the breathing effect
+        let colorStart = color(210, 230, 240); // Very light cyan
+        let colorEnd = color(235, 245, 255); // Soft, light blue
+    
+        // Interpolate between colors based on the same sine value used for breathing size
+        let breatheColor = lerpColor(colorStart, colorEnd, (sin(frameCount * 0.05) + 1) / 2);
+        noStroke();
         if (this.isMouseOver() && this.isArranged) {
-            fill(255); // Optional: Change color to indicate hover
-            noStroke();
-            ellipse(this.x, this.y, this.size * 1.2); // Increase the size by 20%
+            fill(breatheColor); // Use the interpolated color
+            ellipse(this.x, this.y, breathingSize * 1.2); // Increase the size by 20% based on breathing size
         } else {
-            fill(255);
-            noStroke();
-            ellipse(this.x, this.y, this.size);
+            fill(breatheColor); // Use the interpolated color
+            ellipse(this.x, this.y, breathingSize);
         }
     }
 }

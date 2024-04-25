@@ -19,8 +19,51 @@ const months = [
     { days: 31, even: true },  // Decemeber
 ];
 
-function setup() {  
-    createCanvas(windowWidth, windowHeight);
+// Function to calculate the necessary canvas height
+function calculateCanvasHeight() {
+    const cols = 7; // 7 days a week
+    const cellWidth = width * 0.02;
+    const cellHeight = 15;
+    const blockSpacingX = width * 0.02; // Horizontal space between month blocks
+    const blockSpacingY = height * 0.03; // Vertical space between month blocks
+
+    let totalHeight = 0;
+    let maxWidth = 0;
+
+    // Calculate the required height and the maximum width of a month block
+    for (let m = 0; m < months.length; m++) {
+        let rows = Math.ceil(months[m].days / cols);
+        let monthHeight = rows * cellHeight; // Use cellHeight here
+        totalHeight += monthHeight;
+
+        // Add space between month blocks except after the last one
+        if (m < months.length - 1) {
+            totalHeight += blockSpacingY;
+        }
+
+        let monthWidth = cols * cellWidth;
+        maxWidth = max(maxWidth, monthWidth);
+    }
+
+    // Add some top and bottom padding to the total height
+    totalHeight += 2 * blockSpacingY; // For example, add space at the top and bottom
+
+    // Now ensure the canvas width fits the largest month block, if it's not already larger
+    let necessaryWidth = maxWidth + 2 * blockSpacingX; // Add some padding on the sides
+    if (width < necessaryWidth) {
+        // Adjust the canvas width here or ensure your canvas setup handles this case
+        console.log("Canvas width is too small to fit the largest month block.");
+    }
+
+    return totalHeight + 100;
+
+}
+
+
+
+function setup() {
+    let canvasHeight = calculateCanvasHeight(); // Function to determine the required height
+    createCanvas(windowWidth, canvasHeight); 
     textAlign(CENTER, CENTER);
     // Create particles for each day of the year
     for (let i = 0; i < 365; i++) {
@@ -34,6 +77,13 @@ function setup() {
         particles.push(particle);
     }
   }
+
+
+
+function windowResized() {
+    let canvasHeight = calculateCanvasHeight();
+    resizeCanvas(windowWidth, canvasHeight);
+}
 
 function draw() {
     background('#9AADAF');
