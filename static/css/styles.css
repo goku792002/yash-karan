@@ -5,6 +5,12 @@
 }
 
 @font-face {
+    /* Expanded-Medium */
+    font-family: 'GT-America-Exp-Medium-Trial';
+    src: url('../fonts/GT-America-Extended-Medium-Trial.otf') format('woff2');
+}
+
+@font-face {
     /* Condensed-Medium */
     font-family: 'GT-America-Trial-Cn-Md';
     src: url('../fonts/GT-America-Condensed-Thin-Trial.otf') format('woff2');
@@ -38,7 +44,8 @@ html,body{
 }
 
 body{
-    margin-top: -100px;
+    margin-top:150px;
+    overflow-y: visible;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -117,9 +124,10 @@ body{
 }
 
 .large-body {
-    font-family: 'GT-America-Expanded-Regular-Trial';
+    font-family: 'GT-America-Exp-Thin-Trial';
     font-size: 20px;
     line-height: 1.5;
+    color: #ffffff;
 }
 
 .large-body-bold {
@@ -129,13 +137,15 @@ body{
 }
 
 .default-body {
-    font-family: 'GT-America-Expanded-Regular-Trial';
+    color: #ECF6F6;
+    font-family: 'GT-America-Exp-Thin-Trial';
     font-size: 16px;
+    letter-spacing: -0.5px;
     line-height: 1.5;
 }
 
 .default-body-bold {
-    font-family: 'GT-America-Expanded-Medium-Trial';
+    font-family: 'GT-America-Exp-Medium-Trial';
     font-size: 16px;
     line-height: 1.5;
 }
@@ -198,6 +208,8 @@ body{
 #parent-container {
     position: relative;
     width: 60%;
+    min-height: 300px; 
+    padding-bottom: var(--random-thought-height, 10em);
 }
 
 #random-thought {
@@ -209,9 +221,69 @@ body{
 }
 
 #hoverText {
-    position: relative;
+    position: absolute;
     text-align: center;
-    top: 0;
-    left: 0;
-    right: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+/*
+#hoverText::before,
+#hoverText::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 2px; 
+    background-color: white; 
+}
+
+#hoverText::before {
+    left: -50%; 
+    right:50%;
+    transform: translateX(-50%) translateY(-50%); 
+}
+
+#hoverText::after {
+    left: 50%;
+    right: 0; 
+    transform: translateX(-50%) translateY(-50%);
+}
+*/
+
+#weekly-thoughts-container{
+    position: relative;
+    text-align:left;
+    top:0px;
+    width: 100%;
+    height:auto;
+}
+
+.date-text{
+    font-family: 'Lora';
+    color: #ffffff;
+    font-size:16px;
+    filter: blur(0.3px);
+}
+
+.weekly-thought{
+    display:block;
+    margin-top: 10px;
+    max-width:400px;
+    font-size:16px;
+    margin-bottom: 100px;
+}
+
+.weekly-thought .highlight {
+    filter: none;
+}
+
+.weekly-thought .word:not(.highlight) {
+    filter: blur(5px);
+    opacity: 0.3;
+}
+
+.weekly-thought:hover {
+    filter: blur(0px);
 }

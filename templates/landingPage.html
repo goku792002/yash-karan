@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" style="background-color: #BAC8C9;">
 
-
 <head>
     <meta charset="utf-8">
     <title>Landing Page</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="{{ url_for('static', filename='js/landingPage.js') }}" type="module"></script>
 </head>
 
 <body>
@@ -18,12 +16,94 @@
     <h2 class="Xlarge-headline-alt">welcome to your mind</h2>
 
     <div id="parent-container">
-        <div id="random-thought" class="small-headline-alt margin-top-sm">Loading thoughts...</div>
+        <!-- <div id="random-thought" class="small-headline-alt margin-top-sm">Loading thoughts...</div> -->
+        <div id="hello" class="small-headline-alt margin-top-sm">Loading thoughts...</div>
     </div>
 
-    <!-- <div id="hoverText" class="small-headline-alt"> Hover over the text to unveil your thoughts from the past week</div> -->
+    <!-- <a href="/calendar"><button class="round-btn">Go to calendar</button></a> -->
+
+    <div id="hoverText" class="large-body">Hover over the text to unveil your thoughts from the past week</div>
+
+    <div id="weekly-thoughts-container"> 
+        <span class="date-text" style='position:absolute; top:100px; left:8%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                I have to try to figure this homework assignment because my partner didn't do her half and now I have to do her half, but I can't go to the office hours because he doesn't want to help us. <span class="highlight default-body-bold">And I am very annoyed.</span>
+            </span>
+        </span>
+
+        <span class="date-text" style='position:absolute; top:150px; left:61%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                I think it's crazy that I'm like, oh, I do too much and I don't want to do anything. And then I go on Facebook Marketplace to like look for a gift for Lily and then now I'm debating if I want to drive 30 minutes there and 30 minutes back for a poster that's $12. <span class="highlight default-body-bold">Like I don't know what I'm doing.</span>            
+            </span>
+        </span>
+
+        <span class="date-text" style='position:absolute; top:350px; left:28%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                I like, do not like BPL, <span class="highlight default-body-bold">like honestly like fuck BPL</span>, context, lost BPL at 10am, but I'm happy we lost.
+            </span>
+        </span> 
+
+        <span class="date-text" style='position:absolute; top:440px; left:66%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                Angela's just thinking of getting an actual dog, and me and Rachel are very against this because then it's her dog that we have to take care of. He can't be alone for more than two, three hours, and now she texted me asking if I could walk him. I'm home for literally 30 minutes, and she was like, can you take him on a 20-minute walk? This is not my dog. I did not sign up for this. I thought it was in my mind, and  <span class="highlight default-body-bold">I just wanted to sit and read my book for 20 minutes, but instead, to walk this stupid dog.</span> The thing is, Winston didn't do anything wrong. Winston's just here, and Winston didn't have a choice to be here.
+            </span>
+        </span> 
+
+        <span class="date-text" style='position:absolute; top:540px; left:6%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                Okay, I take that back. It's actually very pretty outside and <span class="highlight default-body-bold">I should work on being more positive,</span> but it's like warm and sunny and reminds me of spring. I like my grandparents' house. I go there a lot.
+            </span>
+        </span> 
+
+        <span class="date-text" style='position:absolute; top:580px; left:36%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                I think my room's a mess, but in reality, I just need to put away my laundry, but, and hang the photos and order the poster, and switch the desk, and organize that corner, oh god. <span class="highlight default-body-bold">But, it's honestly not that bad.</span>
+            </span>
+        </span> 
+
+        <span class="date-text" style='position:absolute; top:800px; left:18%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                <span class="highlight default-body-bold">It feels very adult</span> It feels very scary. I don't know why this dog... Lowkey makes me a little nervous.
+            </span>
+        </span> 
+
+        <span class="date-text" style='position:absolute; top:840px; left:58%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                I honestly get mad, like, for how boring it is, you can't have any screens, you must be engaged, and all he does is talk for an hour and 20 minutes, and I have a class like that right before it, and I don't know, god, fucking 4.32 out of 4.50, <span class="highlight default-body-bold">I'm done. I cannot do it.</span> I don't know how the other bitches do it.
+            </span>
+        </span> 
+
+        <span class="date-text" style='position:absolute; top:960px; left:20%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                My <span class="highlight default-body-bold">boyfriend</span> makes me happy and I think he's cute.
+            </span>
+        </span>
+
+        <span class="date-text" style='position:absolute; top:1080px; left:11%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                Tired and I think I like lowkey do too much. I think he's kind of cute though, but <span class="highlight default-body-bold">I need to stop sleeping over at his place.
+                </span></span>
+        </span> 
+
+        <span class="date-text" style='position:absolute; top:1130px; left:54%;'>
+            March 28, 2023
+            <span class="weekly-thought default-body">
+                Lowkey, Munoz, <span class="highlight default-body-bold">not a good person for skipping over the FIFA replay,</span> took the joy out of Kuran's moment, just a thought. Red flag.
+            </span>
+        </span> 
+    </div>
+
+    <script src="{{ url_for('static', filename='js/landingPage.js') }}" type="module"></script>
 
 </body>
-
 </html>
-
