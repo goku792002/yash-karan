@@ -33,5 +33,9 @@ def random_thought():
 def calendar_page():
     return render_template('calendar.html')
 
+@app.route('/thoughtQuestion')
+def thoughtQuestion():
+    return render_template('thoughtQuestion.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

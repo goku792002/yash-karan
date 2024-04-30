@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" style="background-color: #F1F5F5;">
+
+<head>
+    <meta charset="utf-8">
+    <title>thoughtQuestion</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Sidebar with categories -->
+    <div id="sidebar" class="collapsed">
+        <!-- Discover yourself Sidebar -->
+        <div id="discover-bar" class="category default" style="background-color: #88A5A5;">
+            <img src="{{ url_for('static', filename='icons/mdi_hamburger-menu.png') }}" alt="weekly thoughts icon" class="menu-icon">
+            <span class ="medium-headline-regular">Ask yourself a question</span>
+        </div>
+        <div class= "category medium-headline-regular" data-category="homePage"> Home </div>
+        <div class= "category medium-headline-regular" data-category="thought-categories"> Thought Categories </div>
+        <div class= "category medium-headline-regular" data-category="thought-calendar"> Thought Calendar </div>
+        <a href="/thoughtQuestion" class="pageLink">
+            <div class= "category medium-headline-regular" data-category="placeholder"> th </div>
+            <div class= "category medium-headline-regular" data-category="thought-question"> Ask yourself a question </div>
+        </a>
+    </div>
+
+    <div class="questionContainer">
+        <form action="/ask" method="post">
+            <div>
+                <label for="user_query" class="Xlarge-headline-alt" style="color:#6E8889;">Ask your past self a question</label>
+            </div>
+            <div class = "inputContainer">
+                <input type="text" id="user_query" name="user_query" class="medium-headline-regular" placeholder="How has my relationship with Max changed over time?">
+                <input type="submit" value="GO" class="large-headline reflect-btn">
+            </div>
+        </form>
+        <ul class="medium-headline-regular question-list" style="color:#6E8889;">
+            <ul>Self-reflection questions based on recent thought entries</ul>
+            <div class = 'li-container'>
+                <li class="prompQuestion" style="background-color: #E4ECEC; border-top-left-radius: 10px; border-top-right-radius: 10px;">Questions based on latest thought entries</li>
+                <li class="prompQuestion" style="background-color: #DFE7E7;">Questions based on latest thought entries</li>
+                <li class="prompQuestion" style="background-color: #DBE2E2;">Questions based on latest thought entries</li>
+                <li class="prompQuestion" style="background-color: #D6DDDD; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Questions based on latest thought entries</li>
+
+            </div>
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/landingPage.js') }}" type="module"></script>
+</body>
+</html>
