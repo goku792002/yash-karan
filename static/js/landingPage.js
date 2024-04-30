@@ -13,17 +13,14 @@ window.onload = function() {
 
     var dateString = monthNames[monthIndex] + " " + day + ", " + year;
     document.getElementById("current-date").innerHTML = dateString;
-<<<<<<< Updated upstream
 
     wrapWords();
     initUnblurOnHover();
   };
-=======
->>>>>>> Stashed changes
 
     wrapWords();
     initUnblurOnHover();
-  };
+  ;
 
 // function fetchRandomThought() {
 //     fetch('/random_thought')
@@ -96,7 +93,6 @@ function wrapWords() {
         gsap.to(word, { opacity: 1, duration: 0.5 });
       });
     });
-<<<<<<< Updated upstream
   }
   
 
@@ -239,6 +235,3 @@ document.addEventListener('DOMContentLoaded', function() {
 //       });
 //   });
 // });
-=======
-  }
->>>>>>> Stashed changes

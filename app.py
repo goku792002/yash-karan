@@ -32,7 +32,6 @@ def random_thought():
 @app.route('/calendar')
 def calendar_page():
     return render_template('calendar.html')
-<<<<<<< Updated upstream
 
 @app.route('/categories')
 def categories_page():
@@ -41,8 +40,6 @@ def categories_page():
 @app.route('/thoughtQuestion')
 def thoughtQuestion():
     return render_template('thoughtQuestion.html')
-=======
->>>>>>> Stashed changes
 
 if __name__ == '__main__':
     app.run(debug=True)

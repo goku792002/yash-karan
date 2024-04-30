@@ -299,7 +299,6 @@ body{
     opacity: 0.3;
 }
 
-<<<<<<< Updated upstream
 
 .pageLink {
     text-decoration: none;
@@ -559,8 +558,4 @@ body{
 
 .relevant-thought::after {
     content: none;
-=======
-.weekly-thought:hover {
-    filter: blur(0px);
->>>>>>> Stashed changes
 }
