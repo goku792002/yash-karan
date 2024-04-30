@@ -134,3 +134,100 @@ function wrapWords() {
         });
     });
 });
+
+
+// CODE FOR thoughtQuestion.html page
+
+document.addEventListener('DOMContentLoaded', function() {
+  var answerContainer = document.querySelector('.answerContainer');
+  var questionList = document.querySelector('.question-list');
+  var hoverTextQuestion = document.querySelector('#hoverTextQuestion');
+  
+  if (answerContainer && answerContainer.textContent.trim() !== '') {
+      // If .answerContainer has content, hide .question-list
+      if (questionList) {
+          questionList.style.display = 'none';
+      }
+  } 
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var answerContainer = document.querySelector('.answerContainer');
+  var hoverTextQuestion = document.querySelector('#hoverTextQuestion');
+  
+  // Function to toggle visibility based on .answerContainer content
+  function toggleHoverTextVisibility() {
+      if (answerContainer && answerContainer.textContent.trim() !== '') {
+          // If .answerContainer has content, make #hoverTextQuestion visible
+          hoverTextQuestion.style.visibility = 'visible';
+      } else {
+          // If .answerContainer has no content, hide #hoverTextQuestion
+          hoverTextQuestion.style.visibility = 'hidden';
+      }
+  }
+
+  // Initial check when the page loads
+  toggleHoverTextVisibility();
+
+});
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   var questionListItems = document.querySelectorAll('.promptQuestion');
+//   var questionListBox = document.querySelector('.question-list');
+//   var hoverTextQuestion = document.querySelector('#hoverTextQuestion');
+
+//   // Function to make a POST request with the userQuery
+//   function sendUserQuery(userQuery) {
+//       // Prepare form data
+//       var formData = new FormData();
+//       formData.append('user_query', userQuery);
+      
+//       // Make the POST request to the /ask endpoint
+//       fetch('/ask', {
+//           method: 'POST',
+//           body: formData
+//       }).then(response => {
+//           if (!response.ok) {
+//               throw new Error('Network response was not ok: ' + response.statusText);
+//           }
+//           return response.text();
+//       }).then(html => {
+//           // Replace the current page content with the new HTML from the server
+//           document.documentElement.innerHTML = html;
+
+//           // After updating the page content, we need to re-check if .question-list should be hidden
+//           // and if #hoverTextQuestion should be visible
+//           var updatedAnswerContainer = document.querySelector('.answerContainer');
+//           if (updatedAnswerContainer && updatedAnswerContainer.textContent.trim() !== '') {
+//               // Hide .question-list and show #hoverTextQuestion
+//               var updatedQuestionList = document.querySelector('.question-list');
+//               if (updatedQuestionList) {
+//                   updatedQuestionList.style.display = 'none';
+//               }
+//               var updatedHoverTextQuestion = document.querySelector('#hoverTextQuestion');
+//               if (updatedHoverTextQuestion) {
+//                   updatedHoverTextQuestion.style.visibility = 'visible';
+//               }
+//           }
+//       }).catch(error => {
+//           console.error('Error:', error);
+//       });
+//   }
+
+//   // Attach a click event listener to each .promptQuestion
+//   questionListItems.forEach(function(item) {
+//       item.addEventListener('click', function() {
+//           var userQuery = this.textContent || this.innerText;
+//           sendUserQuery(userQuery);
+
+//           // Hide .question-list
+//           if (questionListBox) {
+//               questionListBox.style.display = 'none';
+//           }
+//           // Show #hoverTextQuestion
+//           if (hoverTextQuestion) {
+//               hoverTextQuestion.style.visibility = 'visible';
+//           }
+//       });
+//   });
+// });

@@ -126,7 +126,7 @@ body{
 
 .small-headline-alt {
     font-family: 'Lora';
-    font-weight: normal;
+    font-weight: lighter;
     font-size: 22px;
     color: #ffffff;
     line-height: 1.5;
@@ -316,11 +316,11 @@ body{
     transition: width 0.5s;
     overflow: hidden;
     z-index: 1000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 #sidebar.expanded {
-    width: calc(90px + 3 * 160px);
+    width: calc(90px + 3 * 108px);
     display: flex;
 }
 
@@ -420,12 +420,14 @@ body{
 /* Styles for the thoughtQuestions.html container */
 
 .questionContainer {
+    position: absolute;
     width: 75%;
-    padding-bottom:600px;
     padding-left: 100px;
-    padding-top: 200px;
+    margin-top: -500px;
+    height:100px;
     text-align:left;
     justify-content:left;
+    padding-bottom: 100px;
 }
 
 #user_query {
@@ -473,7 +475,7 @@ body{
     visibility: visible;
 }
 
-.prompQuestion {
+.promptQuestion {
     margin-left: 40px;
     list-style-type: none;
     padding-top: 18px; 
@@ -484,13 +486,76 @@ body{
 .li-container {
     margin-top: 30px;
     transform:translateX(-20px);
-    width:64%;
-    
+    width:80%;
 }
 
-li::after {
-    content: '\2192'; /* Unicode for right arrow */
-    margin-left: 300px; /* Spacing between text and arrow */
+/* li::after {
+    content: '\2192'; 
+    margin-left: 100px; 
     font-weight:lighter;
     opacity: 0.6;
+} */
+
+.answerContainer {
+    position: absolute;
+    margin-top: -200px;
+    text-align:left;
+    width: 70%;
+    justify-content:left;
+    padding-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#hoverTextQuestion {
+    position: absolute;
+    text-align: center;
+    top: 980px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    visibility: hidden;
+}
+
+#relevant_thoughts-container{
+    /* position: relative;
+    text-align:left;
+    top:500px;
+    width: 100%;
+    height:auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px; */
+
+    position: relative;
+    text-align: left;
+    top: 550px;
+    width: 90%;
+    margin-top:20px;
+    padding-bottom: 100px;
+    /* margin-bottom: 100px; */
+}
+
+.thoughts-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    padding-left: 80px;
+    padding-right: 120px;
+    padding-top:20px;
+    list-style-type: none;
+    justify-items: left;
+    margin-top: 160px;
+}
+
+.relevant-thought{
+    text-align:left;
+    list-style-type: none;
+    padding-top: 10px;
+}
+
+.relevant-thought::after {
+    content: none;
 }

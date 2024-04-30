@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def landingPage():
-    #Render the HTML page wirath the form on it
+    #Render the HTML page with the form on it
     return render_template('landingPage.html')
 
 @app.route('/ask', methods=['POST'])
@@ -32,6 +32,10 @@ def random_thought():
 @app.route('/calendar')
 def calendar_page():
     return render_template('calendar.html')
+
+@app.route('/categories')
+def categories_page():
+    return render_template('categories.html')
 
 @app.route('/thoughtQuestion')
 def thoughtQuestion():
