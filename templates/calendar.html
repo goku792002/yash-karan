@@ -5,18 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thought Timeline Calendar</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/calendar.css') }}">
-    <script src="{{ url_for('static', filename='js/calendar.js') }}" type="module"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/calendar.css"> -->
+    <!-- <script src="{{ url_for('static', filename='js/calendar.js') }}" type="module"></script> -->
 
 </head>
 <body>
     <div id ="headline">Navigate your thought timeline</div>
-    <div id="popup" class="popup" style="display: none;">
-        <div class="popup-content">
-            <span id="popup-text">Day of Year: </span>
-            <button onclick="hidePopup()" id="close-button">Close</button>
-        </div>
+    <div class="year-buttons">
+        <button class="year-button" onclick="setYear(2023)">2023</button>
+        <button class="year-button" onclick="setYear(2024)">2024</button>
     </div>
+    <div id="popup" class="popup" style="display: none;">
+        <div class="popup-header">
+            <span id="popup-label">Day: Month, Year</span>
+            <button onclick="hidePopup()" id="close-button">&#x2715;</button> <!-- Cross symbol -->
+        </div>
+        <h2 class="popup-headline">Lorem ipsum is placeholder text commonly used in.</h2>
+        <p class="popup-paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <h3 class="sub-headline">Categories and Keywords</h3>
+        <div class="pill-container">
+            <span class="pill">lorem ipsum</span>
+            <span class="pill">lorem ipsum</span>
+            <span class="pill">lorem ipsum</span>
+        </div>
+        <div class = "thought-list-container">
+            <div class = "sub-headline">Your Thoughts on this Day</div>
+            <div class = "thought-list">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- <script src="/static/js/calendar.js" type="module"></script> -->
+    <script src="{{ url_for('static', filename='js/calendar.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/particle.js') }}" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="{{ url_for('static', filename='js/calendar.js') }}" type="module"></script>
+
+
 </body>
 </html>

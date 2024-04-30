@@ -5,18 +5,18 @@ let selectedParticle = null;
 
 
 const months = [
-    { days: 31, even: false }, // January
-    { days: 28, even: true },  // February
-    { days: 31, even: false },  // March
-    { days: 30, even: true },  // April
-    { days: 31, even: false },  // May
-    { days: 30, even: true },  // June
-    { days: 31, even: false },  // July
-    { days: 31, even: true },  // August
-    { days: 30, even: false },  // September
-    { days: 31, even: true },  // October
-    { days: 30, even: false },  // November
-    { days: 31, even: true },  // Decemeber
+    { days: 31, even: false, name: 'Jan',alpha: 0, animate: false }, // January
+    { days: 28, even: true, name: 'Feb', alpha: 0, animate: false },  // February
+    { days: 31, even: false, name: 'Mar', alpha: 0, animate: false },  // March
+    { days: 30, even: true, name: 'Apr', alpha: 0, animate: false },  // April
+    { days: 31, even: false, name: 'May', alpha: 0, animate: false },  // May
+    { days: 30, even: true, name: 'Jun', alpha: 0, animate: false },  // June
+    { days: 31, even: false, name: 'Jul', alpha: 0, animate: false },  // July
+    { days: 31, even: true, name: 'Aug', alpha: 0, animate: false },  // August
+    { days: 30, even: false, name: 'Sep', alpha: 0, animate: false },  // September
+    { days: 31, even: true, name: 'Oct', alpha: 0, animate: false },  // October
+    { days: 30, even: false, name: 'Nov', alpha: 0, animate: false },  // November
+    { days: 31, even: true, name: 'Dec', alpha: 0, animate: false },  // Decemeber
 ];
 
 // Function to calculate the necessary canvas height
@@ -62,69 +62,165 @@ function calculateCanvasHeight() {
 
 
 function setup() {
+    console.log("setup")
     let canvasHeight = calculateCanvasHeight(); // Function to determine the required height
-    createCanvas(windowWidth, canvasHeight); 
+    createCanvas(windowWidth, canvasHeight);
     textAlign(CENTER, CENTER);
+
+    const centerX = width / 2;
+    const centerY = (height / 2) - 100;
+    const radiusX = width * 0.4;
+    const radiusY = height * 0.3;
+    const angleStep = TWO_PI / 365;
+
     // Create particles for each day of the year
     for (let i = 0; i < 365; i++) {
-        let side = i % 2 === 0 ? 'right' : 'left';
-        let particle = new Particle(side);
-        // Assign initial positions here where width and height are known
-        particle.x = side === 'left' ? random(width * 0.1) : random(width * 0.9, width);
-        particle.y = random(height);
-        particle.targetX = particle.x; // Set the initial target position
+        let angle = angleStep * i;
+        let particle = new Particle(i); // Assume constructor now accepts an ID
+
+        // Assign initial positions based on an ellipse
+        particle.x = centerX + radiusX * cos(angle) + random(-10, 10);
+        particle.y = centerY + radiusY * sin(angle) + random(-10, 10);
+
+        // Initial target is the same as initial position
+        particle.targetX = particle.x;
         particle.targetY = particle.y;
+
         particles.push(particle);
     }
-  }
-
-
+}
 
 function windowResized() {
     let canvasHeight = calculateCanvasHeight();
     resizeCanvas(windowWidth, canvasHeight);
 }
 
+function showMonthTitles() {
+    textSize(16); // Set the text size
+    textAlign(LEFT, TOP); // Align text to the top left
+
+
+    for (let i = 0; i < months.length; i++) {
+        const month = months[i];
+
+        if (month.animate && month.alpha < 255) {
+            month.alpha += 5; // Increment the alpha for the fade-in effect
+        }
+
+        const cols = 7; // Assuming 7 columns for the days of the week
+        const cellWidth = width * 0.02;
+        const cellHeight = height * 0.03;
+        const startX = width * 0.3; // Starting X position, adjusted for 3 months per row
+        const startY = height * 0.2; // Starting Y position, adjusted to be under the headline
+        const blockSpacingX = width * 0.01; // Space between month blocks on X
+        const blockSpacingY = height * 0.03; // Space between month blocks on Y
+
+        let monthRow = Math.floor(i / 3); // Now dividing by 3 for three months per row
+        let monthCol = i % 3; // Modulo 3 for three months per row
+
+        // The month names should appear above the first row of particles
+        // If your text size is bigger or you want more space above the grid, 
+        // you might need to subtract more from `y`.
+        let x =  -7 + startX + monthCol * (cols * cellWidth + blockSpacingX);
+        let y = -105 + startY + monthRow * (Math.ceil(months[0].days / cols) * cellHeight + blockSpacingY) - cellHeight ; // Adjust this if needed
+
+        // Animate the alpha for a fade-in effect
+        // if (month.alpha < 255) {
+        //     month.alpha += 1; // Control the fade-in speed here
+        // }
+
+        fill(255, 255, 255, month.alpha);
+        noStroke();
+        text(month.name, x, y);
+    }
+}
+
 function draw() {
     background('#9AADAF');
     particles.forEach(particle => {
+        // Update hover state for each particle
+        particle.isMouseOver();
+
+        // Move particle towards its target if the popup is not active or it is the selected particle
         if (!popupActive || particle === selectedParticle) {
             particle.moveToTarget();
         }
+
+        // Display each particle
         particle.display();
     });
 
+    // Handle the popup overlay if a popup is active
     if (popupActive) {
+        // Darken the background for the popup
+        // fill(0, 0, 0, 127);
+        // rect(0, 0, width, height);
+
+        // Redisplay the particles, ensuring interaction if not the selected one
         particles.forEach(particle => {
-            if (particle != selectedParticle) {
+            if (particle !== selectedParticle) {
                 particle.moveToTarget();
             }
             particle.display();
-        })
-        fill(0, 0, 0, 127);
-        rect(0, 0, width, height);
-        
-        //selectedParticle.display();  // Ensure selected particle is visible on top of overlay
+        });
+
+        // Ensure selected particle is visible on top of overlay, if needed
+        if (selectedParticle) {
+            selectedParticle.display();
+        }
+    }
+
+    if (allParticlesArranged()) {
+        showMonthTitles();
+    } else {
+        // Optionally, when particles are not arranged, you could decrease the alpha to make them fade out.
+        months.forEach(month => {
+            if (month.alpha > 0) {
+                month.alpha -= 5; // Decrement for fade-out effect
+            }
+        });
     }
 }
-
 
 function hidePopup() {
-    document.getElementById('popup').style.display = 'none'; // Hide the popup
-    popupActive = false; // Set the popup as inactive
-    if (selectedParticle) {
-        selectedParticle.isSelected = false;
-        selectedParticle = null;
-    }
-    mouseMoved(); // Update particles based on mouse position
+    let popup = document.getElementById('popup');
+    popup.style.opacity = 0;  // Start the fade-out
+    setTimeout(() => {
+        popup.style.display = 'none';  // Hide after transition
+        popupActive = false;
+        if (selectedParticle) {
+            selectedParticle.isSelected = false;
+            selectedParticle = null;
+        }
+        mouseMoved();  // Update particles based on mouse position
+    }, 400);  // Match timeout to CSS transition duration
 }
 
-function showPopup(dayOfYear) {
-    let popupText = document.getElementById('popup-text');
-    popupText.innerHTML = 'Day of Year: ' + dayOfYear; // Set the content of the popup
-    document.getElementById('popup').style.display = 'block'; // Show the popup
-    popupActive = true; // Set the popup as active
+function showPopup(particle) {
+
+    // Assuming all checks are passed, we retrieve the month name
+    let monthName = months[particle.monthIndex].name;
+
+    // Continue with the function as usual
+    let popupText = document.getElementById('popup-label');
+    if (!popupText) {
+        console.error("Error: popup-text element not found");
+        return;  // Prevent execution if the popup-text element is not found
+    }
+    popupText.innerHTML = ` ${particle.dayOfMonth} ${monthName}, ${new Date().getFullYear()}`;
+
+    let popup = document.getElementById('popup');
+    if (!popup) {
+        console.error("Error: popup element not found");
+        return;  // Prevent execution if the popup element is not found
+    }
+    popup.style.display = 'flex';
+    setTimeout(() => {
+        popup.style.opacity = 1;
+    }, 10);
+    popupActive = true;
 }
+
 
 function mouseClicked() {
     if (popupActive) {
@@ -154,3 +250,9 @@ function mouseMoved() {
         }
     }
   }
+
+function allParticlesArranged() {
+    // Return true if all particles are in their target positions
+    // This is a placeholder; you'll have to implement this based on your own logic
+    return particles.every(p => p.isArranged);
+}
