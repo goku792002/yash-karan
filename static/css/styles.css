@@ -95,6 +95,12 @@ body{
     font-size: 20px;
 }
 
+.medium-headline-regular {
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+}
+
 .medium-headline-alt {
     font-family: 'Lora';
     font-weight: normal;
@@ -284,6 +290,119 @@ body{
     opacity: 0.3;
 }
 
-.weekly-thought:hover {
-    filter: blur(0px);
+
+
+
+#sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    background-color: #f8f8f8;
+    transition: width 0.5s;
+    overflow: hidden;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.expanded {
+    /* width: 200px;  */
+    /* width: calc(90px + 3 * 200px); */
+    width:auto;
+    display: flex;
+}
+
+/* Style for individual categories including Discover Yourself */
+#sidebar > .category {
+    /* flex: 0 0 90px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-grow: 1;
+    height: 100vh; /* Height of the category bars */
+    /* background-color: #8CA3A4; */
+    transition: all 0.5s ease;
+    color: white;
+    cursor: pointer;
+    writing-mode: vertical-rl;
+    transform: rotate(360deg);
+    
+}
+
+
+/* Active/default category bar style */
+#sidebar > .category.default {
+    position: absolute; 
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 115px;
+    transform: rotate(360deg);
+    writing-mode: vertical-lr;
+    height: 100%;
+    text-align: center;
+    transform: rotate(360deg);
+    background-color: #8CA3A4;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Menu icon style */
+.menu-icon {
+    transform: rotate(90deg);
+    padding-bottom: 25px;
+    width: 24px;
+    margin-top: -800px;
+    color: white;
+}
+
+/* Span inside the default category bar */
+#discover-bar span {
+    position: absolute;
+    bottom: 380px; /* Position from the bottom */
+    left: 65%;
+    transform: translateX(-50%) rotate(0deg); 
+    white-space: nowrap;
+    color: white; /* Text color */
+}
+
+/* Expanded categories (not including the default) */
+#sidebar.expanded .category:not(.default) {
+    flex:1;
+    width: 75px;
+}
+
+#sidebar > .category.fixed {
+    position: static;
+    /* transform: translateX(30px); */
+}
+
+#sidebar > .category:not(.default) {
+    width: 90px; /* Initial width */
+    display: block;
+    height: 100%; /* Adjust if you want a different height */
+    padding-right: 40px;
+}
+
+/* Style for the category text to start horizontal */
+/* .category > span {
+    writing-mode: vertical-lr;
+    transform:  rotate(180deg);
+} */
+
+.category[data-category="thought-question"] {
+    background-color: #88A5A5; 
+}
+
+.category[data-category="thought-calendar"] {
+    background-color: #6E8889; 
+}
+
+.category[data-category="thought-categories"] {
+    background-color: #586F71; 
+}
+
+.category[data-category="homePage"] {
+    background-color: #485A5C; 
 }
