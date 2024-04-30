@@ -42,8 +42,8 @@ body, html {
 }
 
 #headline {
-    position: absolute;
-    top: 10%; /* Adjust as necessary to place the text at the top */
+    position: relative;
+    margin-top: 100px; /* Adjust as necessary to place the text at the top */
     left: 50%;
     transform: translate(-50%, -10%);
     font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
@@ -79,4 +79,27 @@ body, html {
     border: none;
     cursor: pointer;
     margin-top: 20px;
+}
+
+.year-buttons {
+    text-align: center;
+    margin-top: 20px;  
+    display: flex;
+    justify-content: center;  
+    gap: 20px;  
+}
+
+.year-button {
+    background: none;
+    border: none;
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.year-button:hover {
+    text-decoration: underline;
 }
