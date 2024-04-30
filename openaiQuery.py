@@ -2,9 +2,9 @@ import os
 from openai import OpenAI
 from database import create_connection
 
-api_key= os.getenv("OPENAI_API_KEY")
+# api_key= os.getenv("OPENAI_API_KEY")
 
-client = OpenAI(api_key=api_key)
+# client = OpenAI(api_key=api_key)
 
 # connect to the database
 conn = create_connection('thoughts.db')
@@ -27,30 +27,30 @@ def fetch_all_thoughts(conn):
     
 print (fetch_all_thoughts(conn))
 
-def query_openai(user_query, thoughts):
+# def query_openai(user_query, thoughts):
     
-    # Prompt for OpenAI
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant capable of summarizing personal thoughts and answering self-reflection questions based on them."},
-        {"role": "user", "content": f"Here are my thoughts:I hate my classes, I love football.Given these thoughts, answer the following question and list the exact thoughts that are most relevant. The format is as follows: answer the question briefly first and then list every relevant thought on a new line and start the list with the text 'Relevant thoughts' before listing out the thoughts: {user_query} "}
-    ]
+#     # Prompt for OpenAI
+#     messages = [
+#         {"role": "system", "content": "You are a helpful assistant capable of summarizing personal thoughts and answering self-reflection questions based on them."},
+#         {"role": "user", "content": f"Given the user thoughts, answer the following question and list the exact thoughts that are most relevant. {user_query} "}
+#     ]
 
-    completion = client.chat.completions.create(
-        model="gpt-4-turbo",
-        messages=messages,
-        temperature=0.7,
-        max_tokens=10000,
-    )
+#     completion = client.chat.completions.create(
+#         model="gpt-3.5-turbo-0125",
+#         messages=messages,
+#         temperature=0.7,
+#         max_tokens=10000,
+#     )
 
-    # Access the content of the message, which should be a string
-    message_content = completion.choices[0].message.content
+#     # Access the content of the message, which should be a string
+#     message_content = completion.choices[0].message.content
 
-    parts = message_content.split('\n\nRelevant thoughts:\n')
-    answer = parts[0].strip() if parts else ""
+#     parts = message_content.split('\n\nRelevant thoughts:\n')
+#     answer = parts[0].strip() if parts else ""
 
-    relevant_thoughts = get_relevant_thoughts(message_content)
+#     relevant_thoughts = get_relevant_thoughts(message_content)
 
-    return answer, relevant_thoughts
+#     return answer, relevant_thoughts
 
 # Example function to extract relevant thoughts
 def get_relevant_thoughts(completion_message):
@@ -79,6 +79,6 @@ def get_relevant_thoughts(completion_message):
     return relevant_thoughts
 
 # if __name__ == "__main__":
-query = "why am I sad?"
-answer = query_openai(query, fetch_all_thoughts(conn))
-print("THIS IS THE ANSWER", answer)
+# query = "why am I sad?"
+# answer = query_openai(query, fetch_all_thoughts(conn))
+# print("THIS IS THE ANSWER", answer)

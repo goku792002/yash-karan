@@ -62,6 +62,7 @@ function calculateCanvasHeight() {
 
 
 function setup() {
+    console.log("setup")
     let canvasHeight = calculateCanvasHeight(); // Function to determine the required height
     createCanvas(windowWidth, canvasHeight);
     textAlign(CENTER, CENTER);
@@ -181,24 +182,45 @@ function draw() {
     }
 }
 
-
-
 function hidePopup() {
-    document.getElementById('popup').style.display = 'none'; // Hide the popup
-    popupActive = false; // Set the popup as inactive
-    if (selectedParticle) {
-        selectedParticle.isSelected = false;
-        selectedParticle = null;
-    }
-    mouseMoved(); // Update particles based on mouse position
+    let popup = document.getElementById('popup');
+    popup.style.opacity = 0;  // Start the fade-out
+    setTimeout(() => {
+        popup.style.display = 'none';  // Hide after transition
+        popupActive = false;
+        if (selectedParticle) {
+            selectedParticle.isSelected = false;
+            selectedParticle = null;
+        }
+        mouseMoved();  // Update particles based on mouse position
+    }, 400);  // Match timeout to CSS transition duration
 }
 
-function showPopup(dayOfYear) {
-    let popupText = document.getElementById('popup-text');
-    popupText.innerHTML = 'Day of Year: ' + dayOfYear; // Set the content of the popup
-    document.getElementById('popup').style.display = 'block'; // Show the popup
-    popupActive = true; // Set the popup as active
+function showPopup(particle) {
+
+    // Assuming all checks are passed, we retrieve the month name
+    let monthName = months[particle.monthIndex].name;
+
+    // Continue with the function as usual
+    let popupText = document.getElementById('popup-label');
+    if (!popupText) {
+        console.error("Error: popup-text element not found");
+        return;  // Prevent execution if the popup-text element is not found
+    }
+    popupText.innerHTML = ` ${particle.dayOfMonth} ${monthName}, ${new Date().getFullYear()}`;
+
+    let popup = document.getElementById('popup');
+    if (!popup) {
+        console.error("Error: popup element not found");
+        return;  // Prevent execution if the popup element is not found
+    }
+    popup.style.display = 'flex';
+    setTimeout(() => {
+        popup.style.opacity = 1;
+    }, 10);
+    popupActive = true;
 }
+
 
 function mouseClicked() {
     if (popupActive) {

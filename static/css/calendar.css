@@ -31,8 +31,6 @@
     font-style: normal;
 }
 
-
-
 body, html {
     margin: 0;
     padding: 0;
@@ -53,32 +51,99 @@ body, html {
     font-size: 40px;
 }
 
+#popup-label {
+    display: block;
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+    font-weight: lighter;
+    color: #4f5b5d;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.popup-header {
+    width: 100%; /* Ensure the header spans the full width of the popup */
+    position: absolute; /* Position absolutely within the popup */
+    top: 20px; /* Position at the top of the popup */
+    left: 20px; /* Align to the left */
+    padding: 20px; /* Add some padding */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+.popup-headline {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 50px;
+    color: #4f5b5d; /* Adjust text color as needed */
+    margin-bottom: 16px; /* Adjust as needed */
+}
+
+.popup-paragraph {
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #6f8083; /* Adjust text color as needed */
+    margin-bottom: 16px; /* Adjust as needed */
+}
+
+.sub-headline {
+    font-family: 'GT-America-Trial-Cn-Md', sans-serif;
+    font-size: 16px;
+    color: #4f5b5d; /* Adjust text color as needed */
+    margin-bottom: 12px; /* Adjust as needed */
+}
+
+/* .pill-container {
+    /* Add container styles if needed */
+
+
+.pill {
+    display: inline-block;
+    background-color: #6f8083; /* Adjust background color as needed */
+    color: #fff;
+    border-radius: 999px; /* Pill shape */
+    padding: 8px 16px; /* Adjust as needed */
+    font-size: 14px; /* Adjust as needed */
+    margin-right: 8px; /* Space between pills */
+    font-family: 'Manrope', sans-serif;
+}
+
 .popup {
     position: fixed;
-    width: 500px;
+    width: 700px;
     height: 600px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
+    background-color: #BAC8C9;
+    border-radius: 50px;
+    padding: 40px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    z-index: 1000; /* Ensure it's on top */
-    overflow: auto; /* Add scroll if content overflows */
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:flex-start;
+    align-items: flex-start;
     flex-direction: column;
+    opacity: 0;  
+    transition: opacity 1s ease-in-out;
+    box-sizing: border-box; 
 }
 
 #close-button {
-    padding: 10px 20px;
-    background-color: #f00; /* Red background for visibility */
-    color: white;
-    border: none;
+    position: absolute; /* Absolute position relative to the popup */
+    top: 20px; /* Position from the top */
+    right: 40px; /* Position from the right */
+    font-size: 24px; /* Adjust font size */
+    line-height: 1; /* Set line-height to 1 for better alignment */
+    padding: 0 10px; /* Adjust padding to increase hit area */
+    border: none; /* Remove the border */
+    background-color: transparent; /* Ensure background is transparent */
     cursor: pointer;
-    margin-top: 20px;
+    outline: none; /* Remove the outline to avoid border appearance on click */
+    color: white;
+    size: 18px;
 }
 
 .year-buttons {
@@ -102,4 +167,17 @@ body, html {
 
 .year-button:hover {
     text-decoration: underline;
+}
+
+.thought-list-container {
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.thought-list {
+    list-style-type: none;
+    color: #6f8083;
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+    font-size: 16px;
+
 }

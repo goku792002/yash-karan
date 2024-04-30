@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from openaiQuery import query_openai, fetch_all_thoughts
+# from openaiQuery import query_openai, fetch_all_thoughts
 from database import create_connection
 from database import get_random_thought
 
@@ -10,17 +10,17 @@ def landingPage():
     #Render the HTML page wirath the form on it
     return render_template('landingPage.html')
 
-@app.route('/ask', methods=['POST'])
-def ask():
-    #get the user's query from the HTML page
-    user_query = request.form['user_query']
-    #connect to the database
-    conn = create_connection('thoughts.db')
-    thoughts = fetch_all_thoughts(conn)
-    answer, relevant_thoughts = query_openai(user_query, thoughts)
-    conn.close()
+# @app.route('/ask', methods=['POST'])
+# def ask():
+#     #get the user's query from the HTML page
+#     user_query = request.form['user_query']
+#     #connect to the database
+#     conn = create_connection('thoughts.db')
+#     thoughts = fetch_all_thoughts(conn)
+#     answer, relevant_thoughts = query_openai(user_query, thoughts)
+#     conn.close()
 
-    return render_template('thoughtQuestion.html', answer=answer, relevant_thoughts=relevant_thoughts)
+#     return render_template('thoughtQuestion.html', answer=answer, relevant_thoughts=relevant_thoughts)
 
 @app.route('/random_thought')
 def random_thought():

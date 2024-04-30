@@ -10,6 +10,7 @@ class Particle {
         this.currentSize = 15;  // Initialize currentSize to match size
         this.dayOfYear = null;
         this.dayOfMonth = null;  // Add this to store day of the month
+        this.monthIndex = null;  // Add this to store the index of the month
         this.isSelected = false;
         this.isHovered = false;  // Ensure this is initialized
         this.isArranged = true;  // Assume particles start arranged
@@ -37,7 +38,7 @@ class Particle {
                 break;
             }
         }
-    
+        this.monthIndex = monthIndex; // Store the month index
         let monthRow = Math.floor(monthIndex / 3); // Now dividing by 3 for three months per row
         let monthCol = monthIndex % 3; // Modulo 3 for three months per row
         let col = dayOfMonth % cols;
@@ -49,12 +50,12 @@ class Particle {
         this.isArranged = true;
         this.dayOfYear = index + 1; // Assign the day of the year based on index
         this.dayOfMonth = dayOfMonth + 1; // Store the day of the month
+        
 
         months.forEach(month => {
             month.animate = true;
         });
     }
-    
     
     // Call this in draw to move particle towards targetX and targetY
     moveToTarget() {
@@ -128,7 +129,7 @@ class Particle {
         if (this.isMouseOver() && this.isArranged && !popupActive) {
             this.isSelected = true; // Set this particle as selected
             selectedParticle = this; // Reference this particle globally
-            showPopup(this.dayOfYear);
+            showPopup(selectedParticle);
 
             // Scatter all other particles
             particles.forEach(p => {
@@ -160,6 +161,7 @@ class Particle {
             fill(breatheColor);
             ellipse(this.x, this.y, breathingSize);
             if (this.isHovered) {
+                console.log(this.monthIndex);
                 push();  // Save the current drawing settings
                 fill('#557474');  // Black text
                 textSize(20);  // Small text size that fits on the particle
