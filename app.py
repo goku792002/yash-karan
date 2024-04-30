@@ -20,7 +20,7 @@ def ask():
     answer, relevant_thoughts = query_openai(user_query, thoughts)
     conn.close()
 
-    return render_template('answer.html', answer=answer, relevant_thoughts=relevant_thoughts)
+    return render_template('thoughtQuestion.html', answer=answer, relevant_thoughts=relevant_thoughts)
 
 @app.route('/random_thought')
 def random_thought():

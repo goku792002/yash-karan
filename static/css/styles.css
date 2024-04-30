@@ -448,7 +448,7 @@ body{
 }
 
 #user_query:focus {
-    border-bottom: 2px solid black; /* Changes the bottom border on focus */
+    border-bottom: 2px solid #485A5C; /* Changes the bottom border on focus */
 }
 
 .reflect-btn {

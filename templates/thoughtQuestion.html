@@ -46,6 +46,21 @@
         </ul>
     </div>
 
+    <div id="answer">
+        <h2>Your Answer</h2>
+        <p>{{ answer }}</p>
+    </div>
+
+    <!-- Section for displaying the relevant thoughts -->
+    <div id="relevant_thoughts">
+        <h2>Relevant Thoughts</h2>
+        <ul>
+            {% for thought in relevant_thoughts %}
+            <li>{{ thought }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
     <script src="{{ url_for('static', filename='js/landingPage.js') }}" type="module"></script>
 </body>
 </html>

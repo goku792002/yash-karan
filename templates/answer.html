@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer</title>
+    <!-- Include your stylesheets here -->
+</head>
+<body>
+
+    <div id="answer">
+        <h2>Answer</h2>
+        <p>{{ answer }}</p>
+    </div>
+
+    <div id="relevant_thoughts">
+        <h2>Relevant Thoughts</h2>
+        <ul>
+            {% for thought in relevant_thoughts %}
+            <li>{{ thought }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Include any additional JavaScript at the bottom of the body -->
+</body>
+</html>
