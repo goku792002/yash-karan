@@ -43,8 +43,8 @@ def query_openai(user_query, thoughts):
         max_tokens=4000,
     )
 
-#     # Access the content of the message, which should be a string
-#     message_content = completion.choices[0].message.content
+    # Access the content of the message, which should be a string
+    message_content = completion.choices[0].message.content
 
     # Use a regular expression to split the message content
     parts = re.split(r'Relevant thoughts:', message_content, flags=re.IGNORECASE)
@@ -57,7 +57,7 @@ def query_openai(user_query, thoughts):
     # Now call get_relevant_thoughts with the split relevant thoughts section
     relevant_thoughts = get_relevant_thoughts(relevant_thoughts_section)
 
-#     return answer, relevant_thoughts
+    return answer, relevant_thoughts
 
 # Example function to extract relevant thoughts
 def get_relevant_thoughts(relevant_thoughts_section):
