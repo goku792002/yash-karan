@@ -1,0 +1,141 @@
+@font-face {
+    /* Expanded-Regular */
+   font-family: 'GT-America-Exp-Thin-Trial';
+   src: url('../fonts/GT-America-Extended-Regular-Trial.otf') format('woff2');
+}
+
+@font-face {
+   /* Expanded-Medium */
+   font-family: 'GT-America-Exp-Medium-Trial';
+   src: url('../fonts/GT-America-Extended-Medium-Trial.otf') format('woff2');
+}
+
+@font-face {
+   /* Condensed-Medium */
+   font-family: 'GT-America-Trial-Cn-Md';
+   src: url('../fonts/GT-America-Condensed-Thin-Trial.otf') format('woff2');
+}
+
+@font-face {
+   font-family: 'GT-America-Extended-Light-Trial';
+   src: url('../fonts/GT-America-Extended-Ultra-Light-Trial.otf') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+}
+
+/* For suggested questions */
+@font-face {
+   font-family: 'GT-America-Extended-Thin-Trial';
+   src: url('../fonts/GT-America-Extended-Thin-Trial.otf') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+}
+
+
+@font-face {
+   font-family: 'Lora';
+   src: url('../fonts/Lora-Regular.ttf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Manrope';
+   src: url('/Users/Yash/Desktop/Work/Fonts/Manrope/');
+   font-weight: normal;
+   font-style: normal;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    overflow-y: auto;
+}
+
+.container {
+    width: 100%;
+    min-height: 100%;
+    margin: 20px auto;
+    background: #CDDADA;
+    padding-top: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #557474;
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+}
+
+.tabs {
+    margin-bottom: 20px;
+}
+
+.tab {
+    font-family:'GT-America-Extended-Light-Trial', sans-serif;
+    display: inline-block;
+    font-size: large;
+    color: #557474;
+    background: transparent;
+    border: none;
+    padding: 10px 60px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.tabSelected {
+    font-family:'GT-America-Exp-Thin-Trial', sans-serif;
+    display: inline-block;
+    font-size: large;
+    color: #557474;
+    background: transparent;
+    border: none;
+    padding: 10px 60px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.tab:focus, .tab:hover {
+    color: #7a999a;
+}
+
+
+.entry h2 {
+    cursor: pointer;
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+    color:#557474;
+    text-align: left;
+    padding: 5px 20px;
+    transition: all 0.3s ease; /* Smooth transitions for interaction */
+}
+
+.content {
+    display: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    text-align: left;
+    font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+    color:#668b8b;
+    opacity: 0; /* Start with invisible content */
+    transform: scale(0.95); /* Start slightly scaled down */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transitions for opacity and transform */
+}
+
+.content.visible {
+    opacity: 1; /* Full visibility */
+    transform: scale(1); /* Scale back to normal size */
+}
+
+.entry-container {
+    padding: 10px 400px;
+}
+
+.thought-entry {
+    padding: 10px 0px
+}
+
+.category-icon {
+    width:30px;
+    padding-right: 30px;
+}

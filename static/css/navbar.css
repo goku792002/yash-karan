@@ -1,0 +1,419 @@
+@font-face {
+    /* Expanded-Regular */
+   font-family: 'GT-America-Exp-Thin-Trial';
+   src: url('../fonts/GT-America-Extended-Regular-Trial.otf') format('woff2');
+}
+
+@font-face {
+   /* Expanded-Medium */
+   font-family: 'GT-America-Exp-Medium-Trial';
+   src: url('../fonts/GT-America-Extended-Medium-Trial.otf') format('woff2');
+}
+
+@font-face {
+   /* Condensed-Medium */
+   font-family: 'GT-America-Trial-Cn-Md';
+   src: url('../fonts/GT-America-Condensed-Thin-Trial.otf') format('woff2');
+}
+
+@font-face {
+   font-family: 'GT-America-Extended-Light-Trial';
+   src: url('../fonts/GT-America-Extended-Ultra-Light-Trial.otf') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+}
+
+/* For suggested questions */
+@font-face {
+   font-family: 'GT-America-Extended-Thin-Trial';
+   src: url('../fonts/GT-America-Extended-Thin-Trial.otf') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+}
+
+
+@font-face {
+   font-family: 'Lora';
+   src: url('../fonts/Lora-Regular.ttf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Manrope';
+   src: url('/Users/Yash/Desktop/Work/Fonts/Manrope/');
+   font-weight: normal;
+   font-style: normal;
+}
+
+html,body{
+   height: 100%;
+   margin: 0;
+   overflow-y: auto;
+}
+
+body{
+   margin-top: 50px;
+   overflow-y: visible;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+
+.huge-headline {
+   font-family: 'GT-America-Exp-Thin-Trial', sans-serif;
+   font-weight: lighter;
+   color: #ECF6F6;
+   font-size: 100px;
+   letter-spacing: -5px;
+}
+
+.Xlarge-headline {
+   font-family: 'GT America Trial Ext Rg';
+   font-size: 50px;
+   line-height: 1;
+   color: #ffffff;
+}
+
+.Xlarge-headline-alt {
+   font-family: 'Lora';
+   font-weight: normal;
+   font-size: 50px;
+   color: #ECF6F6;
+}
+
+.large-headline {
+   font-family: 'GT-America-Expanded-Regular-Trial';
+   font-size: 36px;
+   line-height: 1;
+}
+
+.large-headline-alt {
+   font-family: 'Lora';
+   font-weight: normal;
+   font-size: 36px;
+   line-height: 1;
+}
+
+.medium-headline {
+   font-family: 'GT-America-Extended-Light-Trial', sans-serif;
+   font-weight: lighter;
+   color: #ffffff;
+   font-size: 20px;
+}
+
+.medium-headline-regular {
+   font-family: 'GT-America-Extended-Thin-Trial', sans-serif;
+   color: #ffffff;
+   font-size: 20px;
+}
+
+.medium-headline-alt {
+   font-family: 'Lora';
+   font-weight: normal;
+   color:#ffffff;
+   font-size: 26px;
+   line-height: 1;
+}
+
+.small-headline {
+   font-family: 'GT-America-Expanded-Regular-Trial';
+   font-size: 22px;
+   line-height: 1;
+}
+
+.small-headline-alt {
+   font-family: 'Lora';
+   font-weight: normal;
+   font-size: 22px;
+   color: #ffffff;
+   line-height: 1.5;
+}
+
+.eyebrow {
+   font-family: 'GT-America-Condensed-Medium-Trial';
+   font-size: 16px;
+   line-height: 1;
+}
+
+.large-body {
+   font-family: 'GT-America-Exp-Thin-Trial';
+   font-size: 20px;
+   line-height: 1.5;
+   color: #ffffff;
+}
+
+.large-body-bold {
+   font-family: 'GT-America-Expanded-Medium-Trial';
+   font-size: 20px;
+   line-height: 1.5;
+}
+
+.default-body {
+   color: #ECF6F6;
+   font-family: 'GT-America-Exp-Thin-Trial';
+   font-size: 16px;
+   letter-spacing: -0.5px;
+   line-height: 1.5;
+}
+
+.default-body-bold {
+   font-family: 'GT-America-Exp-Medium-Trial';
+   font-size: 16px;
+   line-height: 1.5;
+}
+
+.Body-alt {
+   font-family: 'GT-America-Standard-Regular-Trial';
+   font-size: 16px;
+   line-height: 1.5;
+}
+
+.Body-alt-bold {
+   font-family: 'GT-America-Standard-Bold-Trial';
+   font-size: 16px;
+   line-height: 1.5;
+}
+
+.Calltoaction-primary {
+   font-family: 'Manrope';
+   font-weight: bold;
+   font-size: 12px;
+   line-height: 1.5;
+   letter-spacing: 1.5px;
+}
+
+.Calltoaction-micro {
+   font-family: 'Manrope';
+   font-weight: bold;
+   font-size: 10px;
+   line-height: 1.5;
+   letter-spacing: 1.5px;
+}
+
+.extra-large-figure {
+   font-family: 'Lora';
+   font-weight: normal;
+   font-size: 40px;
+   line-height: 1;
+}
+
+.margin-top-sm{
+   margin-top: 10px;
+}
+
+.margin-bottom-sm{
+   margin-bottom: 10px;
+}
+
+.margin-bottom-neg-sm{
+   margin-bottom: -20px;
+}
+
+.margin-bottom-neg-md{
+   margin-bottom: -35px;
+}
+
+.margin-bottom-neg-lg{
+   margin-bottom: -50px;
+}
+
+
+
+
+.pageLink {
+    text-decoration: none;
+    writing-mode: vertical-rl;
+    /* display: block; */
+ }
+ 
+ #sidebar {
+     position: fixed;
+     right: 0;
+     top: 0;
+     bottom: 0;
+     width: 90px;
+     background-color: #f8f8f8;
+     transition: width 0.5s;
+     overflow: hidden;
+     z-index: 1000;
+     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+ }
+ 
+ #sidebar.expanded {
+     width: calc(90px + 3 * 108px);
+     display: flex;
+ }
+ 
+ /* Style for individual categories including Discover Yourself */
+ #sidebar > .category {
+     /* flex: 0 0 90px; */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100vh;
+     flex-grow: 1;
+     height: 100vh; /* Height of the category bars */
+     /* background-color: #8CA3A4; */
+     transition: all 0.5s ease;
+     color: white;
+     cursor: pointer;
+     writing-mode: vertical-rl;
+     transform: rotate(360deg);   
+ }
+ 
+ 
+ /* Active/default category bar style */
+ #sidebar > .category.default {
+     position: absolute; 
+     top: 0;
+     right: 0;
+     z-index: 10;
+     width: 115px;
+     transform: rotate(360deg);
+     writing-mode: vertical-lr;
+     height: 100%;
+     text-align: center;
+     transform: rotate(360deg);
+     background-color: #8CA3A4;
+     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+ }
+ 
+ /* Menu icon style */
+ .menu-icon {
+     transform: rotate(90deg);
+     padding-bottom: 25px;
+     width: 24px;
+     margin-top: -800px;
+     color: white;
+ }
+ 
+ /* Span inside the default category bar */
+ #discover-bar span {
+     position: absolute;
+     bottom: 380px; /* Position from the bottom */
+     left: 65%;
+     transform: translateX(-50%) rotate(0deg); 
+     white-space: nowrap;
+     color: white; /* Text color */
+ }
+ 
+ /* Expanded categories (not including the default) */
+ #sidebar.expanded .category:not(.default):not(.placeholder) {
+     flex:1;
+     width: 75px;
+ }
+ 
+ #sidebar.expanded .category[data-category="placeholder"] {
+     background-color: #88A5A5;
+     width: 150px !important;
+ }
+ 
+ #sidebar > .category.fixed {
+     position: static;
+     /* transform: translateX(30px); */
+ }
+ 
+ #sidebar > .category:not(.default) {
+     width: 90px; /* Initial width */
+     display: block;
+     height: 100%; /* Adjust if you want a different height */
+     padding-right: 40px;
+ }
+ 
+ 
+ .category[data-category="thought-question"] {
+     background-color: #88A5A5; 
+ }
+ 
+ .category[data-category="thought-calendar"] {
+     background-color: #6E8889; 
+ }
+ 
+ .category[data-category="thought-categories"] {
+     background-color: #586F71; 
+ }
+ 
+ .category[data-category="homePage"] {
+     background-color: #485A5C; 
+ }
+ 
+ /* Styles for the thoughtQuestions.html container */
+ 
+ .questionContainer {
+    width: 75%;
+    padding-bottom:600px;
+    padding-left: 100px;
+    padding-top: 200px;
+    text-align:left;
+    justify-content:left;
+ }
+ 
+ #user_query {
+    width: 75%;
+    margin-top:50px;
+    border: none;
+    border-bottom: 2px solid black;
+    border-color: #BAC8C9;
+    font-size: 20px; 
+    padding: 10px 0px; 
+    margin-bottom: 10px;
+    outline: none; 
+    background: transparent; 
+    color:#6E8889;
+ }
+ 
+ #user_query::placeholder {
+    color: #6E8889; 
+    opacity: 0.6; 
+ }
+ 
+ #user_query:focus {
+    border-bottom: 2px solid #485A5C; /* Changes the bottom border on focus */
+ }
+ 
+ .reflect-btn {
+    background:none; 
+    border: none; 
+    color: #6E8889; 
+    opacity: 0.6;
+    /* padding-top: 20px !important; */
+    padding-left: 10px;
+    text-align: left; 
+    text-decoration: none;
+ }
+ 
+ .reflect-btn:hover {
+    color: #485A5C;
+    transition: 0.5s;
+ }
+ 
+ .question-list {
+    margin-left: -80px;
+    padding-top: 75px;
+    visibility: visible;
+ }
+ 
+ .prompQuestion {
+    margin-left: 40px;
+    list-style-type: none;
+    padding-top: 18px; 
+    padding-bottom: 18px;
+    padding-left: 20px;
+ }
+ 
+ .li-container {
+    margin-top: 30px;
+    transform:translateX(-20px);
+    width:64%;
+    
+ }
+ 
+ li::after {
+    content: '\2192'; /* Unicode for right arrow */
+    margin-left: 300px; /* Spacing between text and arrow */
+    font-weight:lighter;
+    opacity: 0.6;
+ }

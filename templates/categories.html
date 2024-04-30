@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/categories.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+	<title>Thought Categories</title>
+
+<body>
+
+<!-- Sidebar with categories -->
+<div id="sidebar" class="collapsed">
+    <!-- Discover yourself Sidebar -->
+    <div id="discover-bar" class="category default">
+        <img src="{{ url_for('static', filename='icons/mdi_hamburger-menu.png') }}" alt="weekly thoughts icon" class="menu-icon">
+        <span class ="medium-headline-regular">Discover yourself</span>
+    </div>
+
+    <a href="/" class="pageLink">
+        <div class= "category medium-headline-regular" data-category="homePage"> Home </div>
+    </a>
+
+    <a href="/categories" class="pageLink">
+        <div class= "category medium-headline-regular" data-category="thought-categories"> Thought Categories </div>
+    </a>
+
+    <a href="/calendar" class="pageLink">
+        <div class= "category medium-headline-regular" data-category="thought-calendar"> Thought Calendar </div>
+    </a>
+    
+    <a href="/thoughtQuestion" class="pageLink">
+        <!-- <div class= "category medium-headline-regular" data-category="placeholder"> th </div> -->
+        <div class= "category medium-headline-regular" data-category="thought-question"> Ask yourself a question </div>
+    </a>
+
+</div>
+
+<div class="container">
+    <h1>These are the major themes of your everyday thoughts</h1>
+    <div class="tabs">
+        <button class="tabSelected" onclick="setTab('week')">week</button>
+        <button class="tab" onclick="setTab('month')">month</button>
+        <button class="tab" onclick="setTab('year')">year</button>
+        <button class="tab" onclick="setTab('all time')">all time</button>
+    </div>
+    <div class = "entry-container">
+        <div class="entry">
+            <h2 onclick="toggle('grind')"><img src="{{ url_for('static', filename='icons/folder.png') }}" alt="weekly thoughts icon" class="category-icon">Grind Grind Grind (6 entries)</h2>
+            <div class="content" id="grind">
+                <p class = "thought-entry">2nd April - "I have to try to figure this homework assignment because my partner didn't do her half and now I have to do her half, but I can't go to the office hours because he doesn't want to help us. And I am very annoyed."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+                
+            </div>
+        </div>
+        <div class="entry">
+            <h2 onclick="toggle('love')"><img src="{{ url_for('static', filename='icons/hearts.png') }}" alt="weekly thoughts icon" class="category-icon">What even is love? (9 entries)</h2>
+            <div class="content" id="love" style="display:none;">
+                <p class = "thought-entry">2nd April - "I have to try to figure this homework assignment because my partner didn't do her half and now I have to do her half, but I can't go to the office hours because he doesn't want to help us. And I am very annoyed."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+                <p class = "thought-entry">5th August - "Smoky. It's like beautiful outside. I don't know, I was in a bad mood, but this was like really, really nice. I should text Stacey and tell her to go outside."</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/landingPage.js') }}" type="module"></script>
+<script src="{{ url_for('static', filename='js/categories.js') }}" ></script>
+
+</body>

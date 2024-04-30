@@ -5,12 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thought Timeline Calendar</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/calendar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+    
     <!-- <link rel="stylesheet" type="text/css" href="static/css/calendar.css"> -->
     <!-- <script src="{{ url_for('static', filename='js/calendar.js') }}" type="module"></script> -->
 
 </head>
 <body>
-    <div id ="headline">Navigate your thought timeline</div>
+
+
+    <!-- Sidebar with categories -->
+    <div id="sidebar" class="collapsed">
+        <!-- Discover yourself Sidebar -->
+        <div id="discover-bar" class="category default">
+            <img src="{{ url_for('static', filename='icons/mdi_hamburger-menu.png') }}" alt="weekly thoughts icon" class="menu-icon">
+            <span class ="medium-headline-regular">Discover yourself</span>
+        </div>
+
+        <a href="/" class="pageLink">
+            <div class= "category medium-headline-regular" data-category="homePage"> Home </div>
+        </a>
+
+        <a href="/categories" class="pageLink">
+            <div class= "category medium-headline-regular" data-category="thought-categories"> Thought Categories </div>
+        </a>
+
+        <a href="/calendar" class="pageLink">
+            <div class= "category medium-headline-regular" data-category="thought-calendar"> Thought Calendar </div>
+        </a>
+        
+        <a href="/thoughtQuestion" class="pageLink">
+            <!-- <div class= "category medium-headline-regular" data-category="placeholder"> th </div> -->
+            <div class= "category medium-headline-regular" data-category="thought-question"> Ask yourself a question </div>
+        </a>
+
+    </div>
+
+    <!-- <div id ="headline" style-="margin-left:100px">Navigate your thought timeline</div> -->
     <div class="year-buttons">
         <button class="year-button" onclick="setYear(2023)">2023</button>
         <button class="year-button" onclick="setYear(2024)">2024</button>
@@ -53,6 +84,7 @@
     
     <!-- <script src="/static/js/calendar.js" type="module"></script> -->
     <script src="{{ url_for('static', filename='js/calendar.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/landingPage.js') }}" ></script>
     <script src="{{ url_for('static', filename='js/particle.js') }}" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 
