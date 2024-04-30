@@ -10,25 +10,36 @@ client = OpenAI(api_key=api_key)
 conn = create_connection('thoughts.db')
 
 def fetch_all_thoughts(conn):
-    """Fetch all thoughts from the database"""
-    c = conn.cursor()
-    c.execute("SELECT thoughts FROM thoughts")
-    rows = [row[0] for row in c.fetchall()]
-    return rows
+    # """Fetch all thoughts from the database"""
+    # c = conn.cursor()
+    # c.execute("SELECT thoughts FROM thoughts")
+    # rows = [row[0] for row in c.fetchall()]
+    # return rows
+    """Fetch two thoughts from the database."""
+    try:
+        c = conn.cursor()
+        c.execute("SELECT thoughts FROM thoughts LIMIT 2")  # Query modified to fetch only two rows
+        rows = [row[0] for row in c.fetchall()]
+        return rows
+    except Exception as e:
+        print(e)
+        return []
+    
+print (fetch_all_thoughts(conn))
 
 def query_openai(user_query, thoughts):
     
     # Prompt for OpenAI
     messages = [
         {"role": "system", "content": "You are a helpful assistant capable of summarizing personal thoughts and answering self-reflection questions based on them."},
-        {"role": "user", "content": f"Here are my thoughts:\n{fetch_all_thoughts(conn)}\n\nGiven these thoughts, answer the following question and list the exact thoughts that are most relevant. The format is as follows: answer the question briefly first and then list every relevant thought on a new line and start the list with the text 'Relevant thoughts' before listing out the thoughts: {user_query} "}
+        {"role": "user", "content": f"Here are my thoughts:I hate my classes, I love football.Given these thoughts, answer the following question and list the exact thoughts that are most relevant. The format is as follows: answer the question briefly first and then list every relevant thought on a new line and start the list with the text 'Relevant thoughts' before listing out the thoughts: {user_query} "}
     ]
 
     completion = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4-turbo",
         messages=messages,
         temperature=0.7,
-        max_tokens=3000,
+        max_tokens=10000,
     )
 
     # Access the content of the message, which should be a string
@@ -67,7 +78,7 @@ def get_relevant_thoughts(completion_message):
 
     return relevant_thoughts
 
-if __name__ == "__main__":
-    query = "why am I sad?"
-    answer = query_openai(query, fetch_all_thoughts(conn))
-    print("THIS IS THE ANSWER", answer)
+# if __name__ == "__main__":
+query = "why am I sad?"
+answer = query_openai(query, fetch_all_thoughts(conn))
+print("THIS IS THE ANSWER", answer)
